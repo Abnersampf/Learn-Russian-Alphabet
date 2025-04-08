@@ -35,8 +35,6 @@ def new_window():
     if len(letters) == 0:
         letters = base.copy()
 
-    print(letters)
-
     chosen_letter = choice(letters)
     letters.remove(chosen_letter)
 
