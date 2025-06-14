@@ -1,12 +1,18 @@
 import tkinter as tk
 from pygame import mixer
-from random import choice, shuffle
+from random import choice, shuffle, randint
 from threading import Thread
 from time import sleep
 
 def play_sound(letra):
     mixer.init()
-    mixer.music.load(f"audios/{letra[0]}{letra[1]}.mp3")
+    v = randint(0, 2)
+    if v == 0: 
+        mixer.music.load(f"audios/{letra[0]}{letra[1]}.mp3")
+    elif v == 1:
+        mixer.music.load(f"audios/{letra[0]}{letra[1]}(1).mp3")
+    else:
+        mixer.music.load(f"audios/{letra[0]}{letra[1]}(2).mp3")
     Thread(target=lambda: mixer.music.play()).start()
 
 def check_answer(wind, button, correct_letter):
